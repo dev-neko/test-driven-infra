@@ -13,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #    provider.crient_id = ENV['DIGITAL_OCEAN_CLIENT_ID']
 #    provider.api_key   = ENV['DIGITAL_OCEAN_API_KEY']
     provider.token     = ENV['DIGITAL_OCEAN_TOKEN']
-    provider.image     = "centos-6-7-x64"
+    provider.image     = "centos-6-5-x64"
     provider.region    = "sgp1"
     provider.size      = "512MB"
     provider.ca_path   = "/System/Library/OpenSSL/cert.pem"
