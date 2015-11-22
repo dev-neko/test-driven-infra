@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe package('ntp') do
-  it { should be_installed }
+  it "should be installed" do
+    should be_installed
+  end
 end
 
 describe service('ntpd') do

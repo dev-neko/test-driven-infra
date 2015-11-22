@@ -2,26 +2,16 @@ require 'rake'
 require 'rspec/core/rake_task'
 
 task :spec    => 'spec:all'
-task :default => :spec
 
 namespace :spec do
-  targets = []
-  Dir.glob('./spec/*').each do |dir|
-    next unless File.directory?(dir)
-    target = File.basename(dir)
-    target = "_#{target}" if target == "default"
-    targets << target
-  end
+  roles = %w( app proxy )
 
-  task :all     => targets
-  task :default => :all
+  task :all     => roles
 
-  targets.each do |target|
-    original_target = target == "_default" ? target[1..-1] : target
-    desc "Run serverspec tests to #{original_target}"
-    RSpec::Core::RakeTask.new(target.to_sym) do |t|
-      ENV['TARGET_HOST'] = original_target
-      t.pattern = "spec/#{original_target}/*_spec.rb"
+  roles.each do |role|
+    RSpec::Core::RakeTask.new(role.to_sym) do |t|
+      ENV["ROLE"] = role
+      t.pattern = "spec/#{role}/*_spec.rb"
     end
   end
 end
