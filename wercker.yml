@@ -24,7 +24,7 @@ build:
         code: sudo gem install serverspec --no-ri --no-rdoc
     - script:
         name: Get Vagrant
-        code: wget https://dl.binary.com/mitchellh/vagrant/vagrant_1.5.1_x86_64.deb
+        code: wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1_x86_64.deb
     - script:
         name: Install Vagrant
         code: sudo dpkg -i vagrant_1.5.1_x86_64.deb
@@ -37,9 +37,9 @@ build:
     - script:
         name: Run rake spec:app
         code: rake spec:app
-    - script:
-        name: Run rake spec:proxy
-        code: rake spec:proxy
+#    - script:
+#        name: Run rake spec:proxy
+#        code: rake spec:proxy
 
   after-scripts:
     - script:
