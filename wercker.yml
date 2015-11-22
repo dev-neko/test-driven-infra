@@ -23,6 +23,9 @@ build:
         name: gem install
         code: sudo gem install serverspec --no-ri --no-rdoc
     - script:
+        name: Install rsync
+        code: sudo apt-get install rsync
+    - script:
         name: Get Vagrant
         code: wget https://releases.hashicorp.com/vagrant/1.7.4/vagrant_1.7.4_x86_64.deb
 # I can't download from below URL because of 403 error. So change URL as above.
