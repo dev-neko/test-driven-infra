@@ -1,4 +1,5 @@
-box: wercker/ruby
+#box: wercker/ruby
+box: ruby
 build:
   steps:
     - script:
