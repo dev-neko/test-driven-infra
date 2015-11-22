@@ -44,7 +44,7 @@ build:
 #        name: Run rake spec:proxy
 #        code: rake spec:proxy
 
-  after-scripts:
+  after-steps:
     - script:
         name: Run vagrant destroy
         code: vagrant destroy --force
