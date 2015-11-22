@@ -10,13 +10,13 @@ build:
         filename: $HOME/.ssh/id_rsa.pub
         overwrite: true
         hide-from-log: true
-        content: $DIGITALOCEAN_SSH_KEY_PUBLIC
+        content: $DIGITAL_OCEAN_SSH_KEY_PUBLIC
     - create-file:
         name: Put SSH private key
         filename: $HOME/.ssh/id_rsa
         overwrite: true
         hide-from-log: true
-        content: $DIGITALOCEAN_SSH_KEY_PRIVATE
+        content: $DIGITAL_OCEAN_SSH_KEY_PRIVATE
     - script:
         name: Run chmod 0400 $HOME/.ssh/id_rsa
         code: chmod 0400 $HOME/.ssh/id_rsa
@@ -28,8 +28,9 @@ build:
 #        code: sudo apt-get install -y wget 
     - script:
         name: Get Vagrant
+        code: wget https://releases.hashicorp.com/vagrant/1.7.4/vagrant_1.7.4_x86_64.deb
 #        code: sudo wget -U mozilla https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1_x86_64.deb --no-check-certificate
-        code: wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1_x86_64.deb --no-check-certificate
+#        code: wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1_x86_64.deb --no-check-certificate
 #        code: wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.5_x86_64.deb --no-check-certificate
     - script:
         name: Install Vagrant
