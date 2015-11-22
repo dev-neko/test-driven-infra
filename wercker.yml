@@ -1,4 +1,3 @@
-#box: wercker/ruby
 box: ruby
 build:
   steps:
@@ -23,20 +22,15 @@ build:
     - script:
         name: gem install
         code: sudo gem install serverspec --no-ri --no-rdoc
-#    - script:
-#        name: Install wget
-#        code: sudo apt-get install -y wget 
     - script:
         name: Get Vagrant
         code: wget https://releases.hashicorp.com/vagrant/1.7.4/vagrant_1.7.4_x86_64.deb
-#        code: sudo wget -U mozilla https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1_x86_64.deb --no-check-certificate
+# I can't download from below URL because of 403 error. So change URL as above.
 #        code: wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1_x86_64.deb --no-check-certificate
-#        code: wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.5_x86_64.deb --no-check-certificate
     - script:
         name: Install Vagrant
         code: sudo dpkg -i vagrant_1.7.4_x86_64.deb
 #        code: sudo dpkg -i vagrant_1.5.1_x86_64.deb
-#        code: sudo dpkg -i vagrant_1.6.5_x86_64.deb
     - script:
         name: Run vagrant plugin install
         code: vagrant plugin install vagrant-digitalocean
